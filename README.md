@@ -12,7 +12,8 @@ Here is the code:
 
 - RNFSManager.java
 
-```
+```java
+
     @ReactMethod
     public void mkdirs(ReadableArray filepaths, ReadableMap options, Promise promise) {
       String filepath = "";
@@ -44,8 +45,8 @@ Here is the code:
    
    And:
    
-   ```
-   @ReactMethod(isBlockingSynchronousMethod = true)
+   ```java
+  @ReactMethod(isBlockingSynchronousMethod = true)
   public Boolean existsSync(String filepath) {
     try {
       File file = new File(filepath);
@@ -61,7 +62,7 @@ Here is the code:
   
   - RNFSManager.m
   
-  ```
+  ```objc
   RCT_EXPORT_METHOD(mkdirs:(NSArray *)filepaths
                   options:(NSDictionary *)options
                   resolver:(RCTPromiseResolveBlock)resolve
@@ -96,7 +97,7 @@ Here is the code:
 
 And
 
-```
+```objc
 RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(existsSync:(NSString *)filepath)
 {
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filepath];
