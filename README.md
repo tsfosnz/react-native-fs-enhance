@@ -105,3 +105,20 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(existsSync:(NSString *)filepath)
     return [NSNumber numberWithBool:fileExists];
 }
 ```
+
+### Javascript
+
+- FS.common.js
+
+```javascript
+
+  mkdirs(filepaths = [], options: MkdirOptions = {}): Promise<void> {
+    return RNFSManager.mkdirs(filepaths, options).then(() => void 0);
+  },
+  
+  ...
+  
+  existsSync(filepath: string): boolean {
+    return RNFSManager.existsSync(normalizeFilePath(filepath));
+  },
+```
